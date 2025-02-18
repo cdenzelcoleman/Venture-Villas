@@ -13,8 +13,8 @@
     <img src="{{ resort.image }}" alt="{{ resort.name }}" />
     {% endif %}
     <p>Location: {{ resort.location }}</p>
-    <p>Price: ${{ resort.price }}</p>
-    <p>Description: {{ resort.description }}</p>
+    {% comment %} <p>Price: ${{ resort.price }}</p>
+    <p>Description: {{ resort.description }}</p {% endcomment %}
     <button class="favorite-button">Favorite</button>
   </li>
   {% endfor %}
