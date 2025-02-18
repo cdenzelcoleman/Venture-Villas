@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Resort
 
 # Create your views here.
 class Home(LoginView):
@@ -33,3 +34,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
+
+def resorts_page(request):
+    resorts = Resort.objects.all()
+    return render(request, 'resorts_page.html', {'resorts': resorts})
