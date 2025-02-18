@@ -22,6 +22,13 @@ header {
     text-align: center;
 }
 
+header h1 {
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    font-size: 2em;
+    margin: 0;
+}
+
 header a {
     color: var(--pure-white);
     text-decoration: none;
@@ -40,6 +47,7 @@ nav ul li a {
     padding: 10px 0;
     text-decoration: none;
 }
+
 
 main {
     margin: 0 auto;
