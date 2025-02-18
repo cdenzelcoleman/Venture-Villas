@@ -19,7 +19,7 @@ class Resort(models.Model):
   
 class Reservation(models.Model):
     name = models.CharField(max_length=100)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     resort = models.ForeignKey(Resort, on_delete=models.CASCADE)
     check_in = models.DateField()
     check_out = models.DateField()
@@ -30,7 +30,7 @@ class Reservation(models.Model):
     
 class Review(models.Model):
     name = models.CharField(max_length=100)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     resort = models.ForeignKey(Resort, on_delete=models.CASCADE)
     rating = models.IntegerField()
     comment = models.TextField()
