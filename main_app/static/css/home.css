@@ -1,0 +1,69 @@
+h1 {
+    font-size: 2.5em;
+    color: var(--deep-teal);
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: var(--warm-sand);
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.page-content {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 2em;
+    color: var(--deep-teal);
+    margin-bottom: 1rem;
+}
+
+form.login {
+    background-color: var(--pure-white);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+width: 100%;
+    margin: 0 auto;
+}
+
+form.login h1 {
+    font-size: 1.5em;
+    color: var(--deep-teal);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form.login p {
+    margin-bottom: 1rem;
+}
+
+.btn.submit {
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn.submit:hover {
+    background-color: var(--muted-sage);
+    color: var(--deep-teal);
+}
