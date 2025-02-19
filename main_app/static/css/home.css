@@ -30,15 +30,21 @@ section h2 {
     margin-bottom: 1rem;
 }
 
+
 form.login {
-    background-color: var(--pure-white);
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-width: 100%;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 2rem !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+    max-width: 400px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    color: var(--pure-white) !important;
 }
+
 
 form.login h1 {
     font-size: 1.5em;

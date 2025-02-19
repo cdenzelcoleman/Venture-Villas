@@ -1,0 +1,43 @@
+.resort-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resort-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.resort-card img {
+    width: 100% !important;
+   height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+}
+
+.resort-card h2 {
+    margin: 0.75rem 0;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.favorite-button {
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+    background-color: var(--muted-sage);
+}
