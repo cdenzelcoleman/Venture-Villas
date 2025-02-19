@@ -10,6 +10,23 @@
 <h2> Book Your Next Vacation </h2>
 <p class="page-content"></p>
 
+<p class="page-content"></p>
+
+<div class="resort-grid">
+  {% for resort in resorts %}
+ <div class="resort-card">
+     {% if resort.image == "N/A" %}
+     <img src="../static/images/default-image.jpg" alt="{{ resort.name }}" />
+     {% else %}
+     <img src="{{ resort.image }}" alt="{{ resort.name }}" />
+     {% endif %}
+     <h2>{{ resort.name }}</h2>
+    <p>Location: {{ resort.location }}</p>
+    {% comment %} <p>Price: ${{ resort.price }}</p>
+    <p>Description: {{ resort.description }}</p {% endcomment %}
+    <button class="favorite-button">Favorite</button>
+    </div>
+{% endfor %}
 {% if not user.is_authenticated %}
 <section>
     <form action="{% url 'home' %}" method="post" class="login" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
