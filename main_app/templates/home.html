@@ -7,6 +7,7 @@
 <p class="page-content"></p>
 
 {% if user.is_authenticated %}
+<section class='resorts-preview'>
 <div class="resort-grid">
   {% for resort in resorts %}
   <div class="resort-card">
@@ -19,9 +20,11 @@
     <img src="{{ resort.image }}" alt="{{ resort.name }}" />
     {% endif %}
     <h2>{{ resort.name }}</h2>
+
     <p>Location: {{ resort.location }}</p>
     <button class="favorite-button">Favorite</button>
   </div>
+</section>
   {% endfor %}
 </div>
 {% else %}
