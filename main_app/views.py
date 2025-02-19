@@ -10,12 +10,20 @@ class Home(LoginView):
     template_name = 'home.html'
 
 def home_resorts(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+
     if request.user.is_authenticated:
         resorts = list(Resort.objects.all())
         random_resort = random.sample(resorts, min(len(resorts), 6))
         return render(request, 'home.html', {'resorts': random_resort})
     else:
-        form = AuthenticationForm()
         return render(request, 'home.html', {'form': form})
 
 def home(request):
