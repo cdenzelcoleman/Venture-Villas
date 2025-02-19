@@ -67,3 +67,7 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
+    
+def resort_detail(request, resort_id):
+    resort = get_object_or_404(Resort, id=resort_id)
+    return render(request, 'resort_detail.html', {'resort': resort})
