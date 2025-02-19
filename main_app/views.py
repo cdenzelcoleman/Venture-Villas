@@ -6,7 +6,6 @@ from .models import Resort
 from django.contrib.auth.decorators import login_required
 import random
 
-# Create your views here.
 class Home(LoginView):
     template_name = 'home.html'
 
@@ -35,7 +34,7 @@ def resorts_page(request):
     resorts = Resort.objects.all()
     return render(request, 'resorts_page.html', {'resorts': resorts})
 
-login_required
+@login_required
 def favorite_resorts(request):
     favorite_resorts = request.user.favorite_resorts.all()
     return render(request, 'favorite_resorts.html', {'resorts': favorite_resorts})
@@ -43,13 +42,13 @@ def favorite_resorts(request):
 @login_required
 def add_favorite(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
-    resort.favorited_by.add(request.user)
+    resort.favorite_by.add(request.user)
     return redirect('resorts-page')
 
 @login_required
 def remove_favorite(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
-    resort.favorited_by.remove(request.user)
+    resort.favorite_by.remove(request.user)
     return redirect('favorite-resorts')
 
 def reservations(request):
