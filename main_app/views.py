@@ -9,10 +9,10 @@ import random
 class Home(LoginView):
     template_name = 'home.html'
 
-    def home_resorts(request):
-        resorts = list(Resort.object.all())
-        random_resort = random.sample(resorts, min(len(resorts), 6))
-        return render(request, 'home.html', {'resorts': random_resort})
+def home_resorts(request):
+    resorts = list(Resort.objects.all())
+    random_resort = random.sample(resorts, min(len(resorts), 6))
+    return render(request, 'home.html', {'resorts': random_resort})
 
 
 def home(request):
