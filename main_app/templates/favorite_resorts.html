@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <h1>Favorite Resorts Page</h1>
 <hr />
 <p class="page-content">This is the Favorite Resorts page</p>
@@ -8,7 +7,10 @@
   {% for resort in resorts %}
   <div class="resort-card">
     {% if resort.image == "N/A" %}
-    <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}" />
+    <img
+      src="{% static 'images/default-image.jpg' %}"
+      alt="{{ resort.name }}"
+    />
     {% else %}
     <img src="{{ resort.image }}" alt="{{ resort.name }}" />
     {% endif %}
