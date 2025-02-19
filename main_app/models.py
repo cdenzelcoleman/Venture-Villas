@@ -13,6 +13,7 @@ class Resort(models.Model):
   image = models.CharField(max_length=1000)
   description = models.TextField()
   favorite = models.BooleanField(default=False)
+  favorite_by = models.ManyToManyField(User, related_name='favorite_resorts')
   
   def __str__(self):
     return self.name
