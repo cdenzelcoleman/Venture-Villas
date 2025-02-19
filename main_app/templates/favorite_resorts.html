@@ -1,5 +1,24 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <h1>Favorite Resorts Page</h1>
 <hr />
 <p class="page-content">This is the Favorite Resorts page</p>
+
+<div class="resort-grid">
+  {% for resort in resorts %}
+  <div class="resort-card">
+    {% if resort.image == "N/A" %}
+    <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}" />
+    {% else %}
+    <img src="{{ resort.image }}" alt="{{ resort.name }}" />
+    {% endif %}
+    <h2>{{ resort.name }}</h2>
+    <p>Location: {{ resort.location }}</p>
+    <form action="{% url 'remove-favorite' resort.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="favorite-button">Remove</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
