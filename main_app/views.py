@@ -3,6 +3,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Resort
+import random
 
 # Create your views here.
 class Home(LoginView):
@@ -38,3 +39,10 @@ def signup(request):
 def resorts_page(request):
     resorts = Resort.objects.all()
     return render(request, 'resorts_page.html', {'resorts': resorts})
+
+def home_resorts(request):
+    resorts = list(Resort.object.all())
+    random_resort = random.sample(resorts, min(len(resorts), 6))
+    return render(request, 'home.html', {'resorts': random_resort})
+
+
