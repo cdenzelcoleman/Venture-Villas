@@ -126,3 +126,22 @@ form.login p {
 .favorite-button:hover {
     background-color: var(--muted-sage);
 }
+
+.resort-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+ }
+
+ @media (max-width: 768px) {
+    .resort-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .resort-grid {
+        grid-template-columns: 1fr;
+    }
+}
