@@ -3,11 +3,10 @@
 {% endblock %} {% block content %}
 <h1>Home page</h1>
 <hr />
-<h2>Book Your Next Vacation</h2>
 <p class="page-content"></p>
-
 {% if user.is_authenticated %}
-<section class='resorts-preview'>
+<section class="resorts-preview">
+  <h2>Book Your Next Vacation</h2>
 <div class="resort-grid">
   {% for resort in resorts %}
   <div class="resort-card">
@@ -20,13 +19,12 @@
     <img src="{{ resort.image }}" alt="{{ resort.name }}" />
     {% endif %}
     <h2>{{ resort.name }}</h2>
-
     <p>Location: {{ resort.location }}</p>
     <button class="favorite-button">Favorite</button>
   </div>
-</section>
   {% endfor %}
 </div>
+</section>
 {% else %}
 <section>
   <form
