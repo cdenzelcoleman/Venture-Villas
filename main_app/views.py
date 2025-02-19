@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Resort
+from django.contrib.auth.decorators import login_required
 import random
 
 # Create your views here.
@@ -34,8 +35,22 @@ def resorts_page(request):
     resorts = Resort.objects.all()
     return render(request, 'resorts_page.html', {'resorts': resorts})
 
+login_required
 def favorite_resorts(request):
-    return render(request, 'favorite_resorts.html')
+    favorite_resorts = request.user.favorite_resorts.all()
+    return render(request, 'favorite_resorts.html', {'resorts': favorite_resorts})
+
+@login_required
+def add_favorite(request, resort_id):
+    resort = get_object_or_404(Resort, id=resort_id)
+    resort.favorited_by.add(request.user)
+    return redirect('resorts-page')
+
+@login_required
+def remove_favorite(request, resort_id):
+    resort = get_object_or_404(Resort, id=resort_id)
+    resort.favorited_by.remove(request.user)
+    return redirect('favorite-resorts')
 
 def reservations(request):
     return render(request, 'reservations.html')
