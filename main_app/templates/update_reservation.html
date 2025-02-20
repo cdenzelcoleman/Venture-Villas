@@ -1,12 +1,12 @@
-{% extend "base.html" %}
-{% block head %}
-    <link rel="stylesheet" href="{% static 'css/resorts/update_reservation.css' %}" />
-{% endblock %}
-{% block content %}
-    <h1>Update Reservation</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update</button>
-    </form>
+{% extends "base.html" %} {% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/resorts/update_reservation.css' %}"
+/>
+{% endblock %} {% block content %}
+<h1>Update Reservation</h1>
+<form method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Update</button>
+</form>
 {% endblock %}

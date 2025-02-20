@@ -1,28 +1,46 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block head %}
-  <link rel="stylesheet" href="{% static 'css/resorts/reservations.css' %}">
-{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/resorts/reservations.css' %}" />
+{% endblock %} {% block content %}
 <h1>Your Reservations</h1>
 <hr />
 {% if reservations %}
-  <div class="reservations-container">
-    {% for reservation in reservations %}
-      <div class="reservation-card">
-        {% if reservation.resort.image == "N/A" %}
-          <img src="{% static 'images/default-image.jpg' %}" alt="{{ reservation.resort.name }}">
-        {% else %}
-          <img src="{{ reservation.resort.image }}" alt="{{ reservation.resort.name }}">
-        {% endif %}
-        <h3>{{ reservation.resort.name }}</h3>
-        <p>Check-in: {{ reservation.check_in }}</p>
-        <p>Check-out: {{ reservation.check_out }}</p>
-        <p>Reserved on: {{ reservation.created_at|date:"M d, Y" }}</p>
-      </div>
-    {% endfor %}
+<div class="reservations-container">
+  {% for reservation in reservations %}
+  <div class="reservation-card">
+    {% if reservation.resort.image == "N/A" %}
+    <img
+      src="{% static 'images/default-image.jpg' %}"
+      alt="{{ reservation.resort.name }}"
+    />
+    {% else %}
+    <img
+      src="{{ reservation.resort.image }}"
+      alt="{{ reservation.resort.name }}"
+    />
+    {% endif %}
+    <h3>{{ reservation.resort.name }}</h3>
+    <p>Check-in: {{ reservation.check_in }}</p>
+    <p>Check-out: {{ reservation.check_out }}</p>
+    <p>Reserved on: {{ reservation.created_at|date:"M d, Y" }}</p>
+
+    <div class="reservation-actions">
+      <a
+        href="{% url 'update-reservation' reservation.id %}"
+        class="edit-button"
+        >Edit</a
+      >
+      <form
+        action="{% url 'cancel-reservation' reservation.id %}"
+        method="POST"
+        style="display: inline"
+      >
+        {% csrf_token %}
+        <button type="submit" class="cancel-button">Cancel</button>
+      </form>
+    </div>
   </div>
+  {% endfor %}
+</div>
 {% else %}
-  <p>You have no reservations yet.</p>
-{% endif %}
-{% endblock %}
+<p>You have no reservations yet.</p>
+{% endif %} {% endblock %}
