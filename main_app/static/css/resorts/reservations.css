@@ -43,6 +43,47 @@
     font-size: 1rem;
   }
 
+  .reservation-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .edit-button {
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+  }
+
+  .cancel-button {
+    background-color: #c0392b;
+    color: var(--pure-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+  }
+
+    .edit-button:hover {
+        background-color: var(--muted-sage);
+        color: var(--deep-teal);
+    }
+
+    .cancel-button:hover {
+        background-color: #e74c3c;
+        color: var(--deep-teal);
+    }
+
   @media (max-width: 768px) {
     .resort-grid {
       grid-template-columns: repeat(2, 1fr);
