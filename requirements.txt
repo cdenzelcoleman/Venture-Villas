@@ -1,9 +1,12 @@
 asgiref==3.8.1
 certifi==2025.1.31
 distlib==0.3.9
+dj-database-url==2.3.0
 Django==5.1.6
 django-environ==0.12.0
+django-on-heroku==1.1.2
 filelock==3.17.0
+gunicorn==23.0.0
 packaging==24.2
 pip==25.0
 pipenv==2024.4.1
@@ -11,5 +14,7 @@ platformdirs==4.3.6
 psycopg2-binary==2.9.10
 setuptools==75.8.0
 sqlparse==0.5.3
+typing_extensions==4.12.2
 virtualenv==20.29.1
 wheel==0.45.1
+whitenoise==6.9.0
