@@ -1,37 +1,49 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block head %}
+<!-- filepath: /Users/naeimsalib/code/Venture-Villas/main_app/templates/resort_detail.html -->
+{% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/resorts/resort_detail.css' %}" />
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <h2>{{ resort.name }}</h2>
 <hr />
 <div class="resort-grid">
-    {% if resort.image == "N/A" %}
-    <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}" />
-    {% else %}
-    <img src="{{ resort.image }}" alt="{{ resort.name }}" />
-    {% endif %}
-    <p>Location: {{ resort.location }}</p>
-    <p>Price: ${{ resort.price }}</p>
-    <p>Description: {{ resort.description }}</p>
-    <a href="{% url 'reserve-resort' resort.id %}" class="btn reserve-btn">Reserve</a>
-    {% if user.is_authenticated %}
-    {% if user in resort.favorited_by.all %}
-    <form action="{% url 'remove-favorite' resort.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="favorite-button">Unfavorite</button>
-    </form>
-    {% else %}
-    <form action="{% url 'add-favorite' resort.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="favorite-button">Favorite</button>
-    </form>
-    {% endif %}
-    
-    {% endif %}
+  {% if resort.image == "N/A" %}
+  <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}" />
+  {% else %}
+  <img src="{{ resort.image }}" alt="{{ resort.name }}" />
+  {% endif %}
+  <p>Location: {{ resort.location }}</p>
+  <p>Price: ${{ resort.price }}</p>
+  <p>Description: {{ resort.description }}</p>
+  <a href="{% url 'reserve-resort' resort.id %}" class="btn reserve-btn"
+    >Reserve</a
+  >
+  {% if user.is_authenticated %} {% if user in resort.favorited_by.all %}
+  <form action="{% url 'remove-favorite' resort.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="favorite-button">Unfavorite</button>
+  </form>
+  {% else %}
+  <form action="{% url 'add-favorite' resort.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="favorite-button">Favorite</button>
+  </form>
+  {% endif %}
+  <h3>Reviews</h3>
+  <div class="reviews">
+    {% for review in reviews %}
+    <div class="review">
+      <p>
+        <strong>{{ review.user.username }}</strong> rated {{ review.rating }}
+        stars
+      </p>
+      <p>{{ review.comment }}</p>
+    </div>
+    {% endfor %}
   </div>
-  {% endblock %}
- 
+  <h3>Add a Review</h3>
+  <form action="{% url 'add-review' resort.id %}" method="post">
+    {% csrf_token %} {{ review_form.as_p }}
+    <button type="submit" class="btn submit-btn">Submit Review</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

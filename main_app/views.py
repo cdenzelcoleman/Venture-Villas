@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Resort, Reservation
-from .forms import ReservationForm
+from .forms import ReservationForm, ReviewForm
 from django.contrib.auth.decorators import login_required
 import random
 
@@ -77,6 +77,22 @@ def signup(request):
 def resort_detail(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
     return render(request, 'resort_detail.html', {'resort': resort})
+
+@login_required
+def add_review(request, resort_id):
+    resort = get_object_or_404(Resort, id=resort_id)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.resort = resort
+            review.name = resort.name
+            review.save()
+            return redirect('resort-detail', resort_id=resort.id)
+    else:
+        form = ReviewForm()
+    return render(request, 'resort_detail.html', {'resort': resort, 'review_form': form})
 
 def reserve_resort(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
