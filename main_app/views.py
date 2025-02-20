@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Resort, Reservation
+from .models import Resort, Reservation, Review
 from .forms import ReservationForm, ReviewForm
 from django.contrib.auth.decorators import login_required
 import random
@@ -76,7 +76,10 @@ def signup(request):
     
 def resort_detail(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
-    return render(request, 'resort_detail.html', {'resort': resort})
+    reviews =  Review.objects.filter(resort=resort)
+    review_form = ReviewForm()
+    context = {'resort': resort, 'review_form': review_form, 'reviews': reviews}
+    return render(request, 'resort_detail.html', context)
 
 @login_required
 def add_review(request, resort_id):
