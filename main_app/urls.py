@@ -12,5 +12,7 @@ urlpatterns = [
     path('remove-favorite/<int:resort_id>/', views.remove_favorite, name='remove-favorite'),
     path('resort/<int:resort_id>/', views.resort_detail, name='resort-detail'),  
     path('resort/<int:resort_id>/reserve/', views.reserve_resort, name='reserve-resort')
+    path('reservation/<int:reservation_id>/cancel/', views.cancel_reservation, name='cancel-reservation'),
+    path('reservation/<int:reservation_id>/update/', views.update_reservation, name='update-reservation'),
 ]
   
