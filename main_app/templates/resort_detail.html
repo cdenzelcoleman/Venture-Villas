@@ -1,4 +1,3 @@
-<!-- filepath: /Users/naeimsalib/code/Venture-Villas/main_app/templates/resort_detail.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -9,7 +8,7 @@
 {% block content %}
 <h2>{{ resort.name }}</h2>
 <hr />
-<div class="resort-detail">
+<div class="resort-grid">
     {% if resort.image == "N/A" %}
     <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}" />
     {% else %}
