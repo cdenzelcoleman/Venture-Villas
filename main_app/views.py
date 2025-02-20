@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Resort
+from .models import Resort, Reservation
+from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 import random
 
@@ -52,7 +53,12 @@ def remove_favorite(request, resort_id):
     return redirect('favorite-resorts')
 
 def reservations(request):
-    return render(request, 'reservations.html')
+    if request.user.is_authenticated:
+        user_reservations = Reservation.objects.filter(user=request.user)
+    else:
+        user_reservations = []
+    context = {'reservations': user_reservations}
+    return render(request, 'reservations.html', context)
 
 def signup(request):
     error_message = ''
@@ -71,3 +77,19 @@ def signup(request):
 def resort_detail(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
     return render(request, 'resort_detail.html', {'resort': resort})
+
+def reserve_resort(request, resort_id):
+    resort = get_object_or_404(Resort, id=resort_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            reservation.user = request.user
+            reservation.resort = resort
+            reservation.name = resort.name
+            reservation.save()
+            return redirect('reservations')
+    else:
+        form = ReservationForm()
+        context = {'form': form, 'resort': resort}
+        return render(request, 'reserve.html', context)
