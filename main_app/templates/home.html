@@ -9,7 +9,6 @@
   <h2>Book Your Next Vacation</h2>
 <div class="resort-grid">
   {% for resort in resorts %}
-  <!-- Inside your resorts preview loop in home.html -->
 <div class="resort-card">
   <a href="{% url 'resort-detail' resort.id %}">
     {% if resort.image == "N/A" %}
