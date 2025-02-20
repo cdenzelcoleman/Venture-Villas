@@ -1,0 +1,49 @@
+.resort-detail {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    color: #fff;
+  }
+  .resort-detail img {
+    width: 100% !important;
+   height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+}
+  .resort-detail h2 {
+    margin-bottom: 1rem;
+    font-size: 2em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .resort-detail p {
+    margin-bottom: 1rem;
+    font-size: 1.1em;
+  }
+  .favorite-button {
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .favorite-button:hover {
+    background-color: var(--muted-sage);
+  }
+  @media (max-width: 768px) {
+    .resort-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .resort-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

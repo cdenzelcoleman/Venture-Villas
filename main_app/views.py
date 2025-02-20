@@ -93,3 +93,14 @@ def reserve_resort(request, resort_id):
         form = ReservationForm()
         context = {'form': form, 'resort': resort}
         return render(request, 'reserve.html', context)
+    
+    def cancel_reservation(request, reservation_id):
+        reservation = get_object_or_404 (Reservation, id=reservation_id, user=request.user)
+
+        if request.method == 'POST':
+            reservation.delete()
+            return redirect('reservations')
+        context = {'reservation': reservation}
+        return render(request, 'cancel_reservation.html', context)
+
+    
