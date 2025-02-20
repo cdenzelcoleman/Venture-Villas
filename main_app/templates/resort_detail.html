@@ -37,6 +37,17 @@
         stars
       </p>
       <p>{{ review.comment }}</p>
+      {% if review.user == user %}
+      <a href="{% url 'edit-review' review.id %}" class="btn edit-btn">Edit</a>
+      <form
+        action="{% url 'delete-review' review.id %}"
+        method="post"
+        style="display: inline"
+      >
+        {% csrf_token %}
+        <button type="submit" class="btn delete-btn">Delete</button>
+      </form>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
