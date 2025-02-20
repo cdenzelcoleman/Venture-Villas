@@ -97,6 +97,27 @@ def add_review(request, resort_id):
         form = ReviewForm()
     return render(request, 'resort_detail.html', {'resort': resort, 'review_form': form})
 
+@login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect('resort-detail', resort_id=review.resort.id)
+    else:
+        form = ReviewForm(instance=review)
+    return render(request, 'edit_review.html', {'form': form, 'review': review})
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    if request.method == 'POST':
+        resort_id = review.resort.id
+        review.delete()
+        return redirect('resort-detail', resort_id=resort_id)
+    return render(request, 'delete_review.html', {'review': review})
+
 def reserve_resort(request, resort_id):
     resort = get_object_or_404(Resort, id=resort_id)
     if request.method == 'POST':
