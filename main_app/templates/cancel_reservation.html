@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/resorts/cancel_reservation.css' %}">
+{% endblock %}
+{% block content %}
+  <h1>Cancel Reservation {{ reservation.resort.name }}</h1>
+  <hr />
+  <p class="page-content">Are you sure you want to cancel your reservation at {{ reservation.resort.name }}?</p>
+  <form action="{% url 'cancel-reservation' reservation.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="cancel-button">Cancel Reservation</button>
+  </form>
+{% endblock %}
