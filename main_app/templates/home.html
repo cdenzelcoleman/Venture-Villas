@@ -9,19 +9,20 @@
   <h2>Book Your Next Vacation</h2>
 <div class="resort-grid">
   {% for resort in resorts %}
-  <div class="resort-card">
+  <!-- Inside your resorts preview loop in home.html -->
+<div class="resort-card">
+  <a href="{% url 'resort-detail' resort.id %}">
     {% if resort.image == "N/A" %}
-    <img
-      src="{% static 'images/default-image.jpg' %}"
-      alt="{{ resort.name }}"
-    />
+      <img src="{% static 'images/default-image.jpg' %}" alt="{{ resort.name }}">
     {% else %}
-    <img src="{{ resort.image }}" alt="{{ resort.name }}" />
+      <img src="{{ resort.image }}" alt="{{ resort.name }}">
     {% endif %}
     <h2>{{ resort.name }}</h2>
-    <p>Location: {{ resort.location }}</p>
-    <button class="favorite-button">Favorite</button>
-  </div>
+  </a>
+  <p>Location: {{ resort.location }}</p>
+  <button class="favorite-button">Favorite</button>
+</div>
+
   {% endfor %}
 </div>
 </section>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/reserve.css' %}">
+{% endblock %}
+{% block content %}
+  <h1>Reserve {{ resort.name }}</h1>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn submit">Book Now</button>
+  </form>
+{% endblock %}
