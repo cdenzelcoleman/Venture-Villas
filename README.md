@@ -3,9 +3,11 @@
 #### Venture-Villas is a next-gen resort booking platform designed for 
 #### seamless, user-friendly travel experiences.
 
-<img src="path to your game screenshot" alt="Description of Screenshot"/>
-
-<img src="path to your gif/video" style="width:100vw; height:100vh" alt="Text describing your video"/>
+<img src="https://i.imgur.com/n67TiEn.jpeg" alt="Home page"/>
+<img src="https://i.imgur.com/x3SNXqu.jpeg" alt="Sign Up"/>
+<img src="https://i.imgur.com/Yn42mKE.jpeg" alt="Login"/>
+<img src="https://i.imgur.com/KvHzrYz.jpeg" alt="Resorts"/>
+<img src="https://i.imgur.com/ZdwuJPI.jpeg" alt="Reservations"/>
 
 ## Description
 Venture-Villas: A next-gen resort booking platform. A user can browse through the collection of highly rated resorts. Make a reservation. Users are also able to make reviews about their stay. Update and delete reservations. 
@@ -22,6 +24,9 @@ Venture-Villas: A next-gen resort booking platform. A user can browse through th
 * JavaScript
 * HTML5
 * CSS3
+* django
+* github
+* heroku
 
 
 ## Features
