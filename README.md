@@ -13,7 +13,7 @@
 Venture-Villas: A next-gen resort booking platform. A user can browse through the collection of highly rated resorts. Make a reservation. Users are also able to make reviews about their stay. Update and delete reservations. 
 
 ## Table of Contents
-* [Technologies Used](#technologiesused)
+* [https://i.imgur.com/VrieTah.png](#heroku)
 * [Features](#features)
 * [Design](#design)
 * [Project Next Steps](#nextsteps)
@@ -21,7 +21,6 @@ Venture-Villas: A next-gen resort booking platform. A user can browse through th
 * [About the Author](#author)
 
 ## <a name="technologiesused"></a>Technologies Used
-* JavaScript
 * HTML5
 * CSS3
 * django
