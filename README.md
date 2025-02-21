@@ -24,10 +24,10 @@ Venture-Villas: A next-gen resort booking platform. A user can browse through th
 
 
 ## Features
-Book reservations
-Submit a review
-Edit and update a reservation
-Full CRUD functionality
+* Book reservations
+* Submit a review
+* Edit and update a reservation
+* Full CRUD functionality
 
 ## Wireframe Images
 * <img src="https://share.balsamiq.com/c/oTCRTUzWG6HaB8HxN1YZiD.jpg">
@@ -41,28 +41,19 @@ Full CRUD functionality
 
 ## <a name="nextsteps"></a>Project Next Steps
 #### List of Future Features
-* Allow the user to chose player one or player two.
-* Allow users to play against computer.
-* Add a timer
-* Add a scoreboard. 
-* Users can change the theme.
+* Allow the user to have a virtual tour of the resort.
+* Recommend resorts to users based on their search pattern.
+* Add a timer to booking process.
 
 ## <a name="deployment"></a>Deployed Link
-[Netlify]([https://wonderful-brahmagupta-6a75d3.netlify.com](https://connect4pc.netlify.app/))
+https://venture-villas-dfc403d3632f.herokuapp.com/
 
 * You can view the repository:
-[Github.com](https://github.com/Gr8ness21/Connect-4)
+[Github.com](https://github.com/naeimsalib/Venture-Villas)
 * If unable to view please go live locally through VS Code
 
-## <a name="author"></a>About The Author
-I build applications and mini projects tied to my various interests. I look for creative solutions to real world problems and think of technical ways to address them. While no application is ever perfect I find joy in the process and all my final products!
-    
-## Works Cited:
-*https://stackoverflow.com/questions/24093290/what-does-the-question-mark-mean-in-javascript/24093304
-*https://www.w3schools.com/jquery/jquery_ref_events.asp
-*Understanding “this” in JQUERY: 
-* 	the this object doesn't change. It is the owner of the function. It is, in most cases like this, simply a node and you can reference all of its properties like this.className. (think of it as you would a node or whatnot that you get with document.getElementById). It is just the "owner" of the function. Therefore, you are just passing the this object to jQuery's $(). Conclusion: If you want to use jQuery functions for the current node, use $(this). But if you want to access the objects own properties (e.g. .name, className, .id), use simply this.
-- https://stackoverflow.com/questions/8469635/jquery-when-to-use-this-and-when-to-use-this
-
-* A constructor: A constructor in Java is a block of code similar to a method that's called when an instance of an object is created. Here are the key differences between aconstructor and a method: A constructor doesn't have a return type. ... Unlike methods, constructorsare not considered members of a class.
-- https://www.w3schools.com/java/java_constructors.asp
+## <a name="The Four"></a>Team Members
+* Naeim Salib
+* Cameron Coleman
+* Dell Mallett
+* Callistus Onwuka
