@@ -24,17 +24,19 @@ Venture-Villas: A next-gen resort booking platform. A user can browse through th
 
 
 ## Features
-Users Feature 1
-Users Feature 2
+Book reservations
+Submit a review
+Edit and update a reservation
+Full CRUD functionality
 
 ## Wireframe Images
-* Description of image location, or <img src="path to wireframe images">
+* <img src="https://share.balsamiq.com/c/oTCRTUzWG6HaB8HxN1YZiD.jpg">
 
 ## Trello Planning
-* Link to trello or planning board - ex: https://trello.com/b/2jeHdFcV/project-1-connect-4
+* https://trello.com/b/TalWRQ8n/venture-villas
 
 ## <a name="design"></a>Design
-* Descrition of what inspired your design. Ex: Design elements implemented using HTML5 and CSS3. 
+* Design elements implemented using Django, HTML5 and CSS3. 
 
 
 ## <a name="nextsteps"></a>Project Next Steps
