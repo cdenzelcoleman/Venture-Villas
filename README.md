@@ -14,11 +14,12 @@ Venture-Villas: A next-gen resort booking platform. A user can browse through th
 
 
 ## <a name="technologiesused"></a>Technologies Used
-* HTML5
-* CSS3
-* django
-* github
-* <img src="https://i.imgur.com/VrieTah.png" alt="heroku"/>
+
+* <img src="https://i.imgur.com/HLJtYZD.png" alt="HTML"/>
+* <img src="https://i.imgur.com/N06MnwZ.png" alt="CSS"/>
+* <img src="https://i.imgur.com/9iy16cW.png" alt="django"/>
+* <img src="https://i.imgur.com/ph6KoKR.png" alt="GitHub"/>
+* <img src="https://i.imgur.com/DTqmOVq.png" alt="heroku"/>
 
 
 
