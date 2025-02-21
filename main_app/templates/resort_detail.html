@@ -51,11 +51,13 @@
     </div>
     {% endfor %}
   </div>
-  <h3>Add a Review</h3>
+  <details class="review-form-toggle">
+    <summary>Add a Review</summary>
   <form action="{% url 'add-review' resort.id %}" method="post">
     {% csrf_token %} {{ review_form.as_p }}
     <button type="submit" class="btn submit-btn">Submit Review</button>
   </form>
+  </details>
   {% endif %}
 </div>
 {% endblock %}
