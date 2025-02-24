@@ -1,30 +1,31 @@
-{% extends 'base.html' %} {% load static %} 
-{% block head %}
+<!-- filepath: /Users/naeimsalib/code/Venture-Villas/main_app/templates/favorite_resorts.html -->
+{% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/resorts/favorite_resorts.css' %}" />
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <h1>Favorite Resorts Page</h1>
 <hr />
 <p class="page-content">This is the Favorite Resorts page</p>
 
 <div class="resort-grid">
   {% for resort in resorts %}
-  <div class="resort-card">
-    {% if resort.image == "N/A" %}
-    <img
-      src="{% static 'images/default-image.jpg' %}"
-      alt="{{ resort.name }}"
-    />
-    {% else %}
-    <img src="{{ resort.image }}" alt="{{ resort.name }}" />
-    {% endif %}
-    <h2>{{ resort.name }}</h2>
-    <p>Location: {{ resort.location }}</p>
-    <form action="{% url 'remove-favorite' resort.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="favorite-button">Remove</button>
-    </form>
-  </div>
+  <a href="{% url 'resort-detail' resort.id %}" class="reservation-link">
+    <div class="resort-card">
+      {% if resort.image == "N/A" %}
+      <img
+        src="{% static 'images/default-image.jpg' %}"
+        alt="{{ resort.name }}"
+      />
+      {% else %}
+      <img src="{{ resort.image }}" alt="{{ resort.name }}" />
+      {% endif %}
+      <h2>{{ resort.name }}</h2>
+      <p>Location: {{ resort.location }}</p>
+      <form action="{% url 'remove-favorite' resort.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="favorite-button">Remove</button>
+      </form>
+    </div>
+  </a>
   {% endfor %}
 </div>
 {% endblock %}
