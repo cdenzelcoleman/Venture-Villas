@@ -1,0 +1,71 @@
+/* reserve.css */
+
+/* Container for the reservation form */
+.reserve-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    color: var(--pure-white);
+    text-align: center;
+  }
+  
+  /* Heading styling */
+  .reserve-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--deep-teal);
+  }
+  
+  /* Form element styling */
+  .reserve-container form p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  /* Label styling */
+  .reserve-container form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--deep-teal);
+  }
+  
+  /* Input and textarea styling */
+  .reserve-container form input[type="text"],
+  .reserve-container form input[type="date"],
+  .reserve-container form input[type="number"],
+  .reserve-container form select,
+  .reserve-container form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--pure-white);
+  }
+  
+  /* Submit button styling */
+  .reserve-container form .btn.submit {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--deep-teal);
+    color: var(--pure-white);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reserve-container form .btn.submit:hover {
+    background-color: var(--muted-sage);
+  }
+  
