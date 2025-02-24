@@ -49,6 +49,11 @@
     justify-content: center;
   }
 
+  .reservation-link {
+    text-decoration: none!important;
+    color: inherit!important;
+  }
+
   .edit-button {
     background-color: var(--deep-teal);
     color: var(--pure-white);
